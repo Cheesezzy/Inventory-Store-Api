@@ -1,6 +1,6 @@
 # Inventory-Store-Api
 
-Summitech Computing Ltd Assessment
+Summitech Computing Ltd Exercise
 
 Using NodeJS/ExpressJS and SQL, build a RESTful API that allows organizations to
 manage a simple inventory. The inventory is to accommodate items (products or
