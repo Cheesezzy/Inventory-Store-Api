@@ -15,12 +15,8 @@ const Product = DB.define('Product', {
     }
 })
 
-   Product.hasMany(stock,{
-    foreignKey: "productId",
-    as: "Stock"
-   });
+Product.hasMany(stock, {foreignKey: "productId", as:"stocks"})
 
-   stock.belongsTo(Product, {
-    foreignKey: "BatchId",
-    as: "Product"
-   });
+stock.belongsTo(Product, {foreignKey:"productId", as:"product"})
+
+module.exports = Product;

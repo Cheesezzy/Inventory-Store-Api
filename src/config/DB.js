@@ -10,11 +10,11 @@ module.exports = new Sequelize(
         host: DB_HOST,
         dialect:"postgres", 
         logging : false,
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnautorized: false
-            }
-        }
+        // dialectOptions: {
+        //     ssl: {
+        //         require: true,
+        //         rejectUnautorized: false
+        //     }
+        // }
     }
 )

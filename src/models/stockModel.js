@@ -1,12 +1,18 @@
 const { DataTypes } = require('sequelize');
 const DB = require("../config/DB");
+const Product = require('./productModel');
 
 
 const Stock = DB.define('Stock', {
-    BatchId: {
+    id:{
+        type: DataTypes.UUID,
+            primaryKey:true,
+            allowNull: false
+    },
+    batchId: {
         type: DataTypes.STRING,
-        primaryKey: true,
         allowNull: false,
+        unique: true
     },
     quantity: {
         type: DataTypes.STRING,

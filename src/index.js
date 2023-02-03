@@ -2,7 +2,11 @@ const express = require('express');
 const env = require('./config');
 const DB = require('./config/DB');
 const {signInRoute} = require('./routes/signInRoute');
-const signUpRoute = require('./routes/signUpRoute');
+const {signUpRoute} = require('./routes/signUpRoute');
+const {productRoute} = require('./routes/productRoute');
+const {stockRoute} = require('./routes/stockRoute');
+const auth = require("./middleware/auth");
+
 
 const port = env.PORT;
 
@@ -20,19 +24,19 @@ const StartServer = () => {
 });
 
  app.use("/signIn", signInRoute);
-//  app.use("/signUp", signUpRoute);
+ app.use("/signUp", signUpRoute);
+ app.use("/product", auth, productRoute);
+ app.use("/stock", auth , stockRoute);
 
 
 app.get("/test", (req, res) => {
     res.status(200).send("ping");
 })
 
-app.use(( err, req, res)=> {
-    res.locals.message =err.message;
-    res.locals.error = req.app.get("env") === "development" ? err : {};
-
+app.use(( err, req, res, next)=> {
+    err = err || {};
     res.status(err.status || 500).json({
-        message: err.message
+        message: err.message || "An error occured"
     });
 })
 
