@@ -20,5 +20,9 @@ The API should include endpoints for the following:
 - Add stock (with batchId and quantity. BatchIds are unique)
 - Fetch stocks
 
-Run start the app and test API
+
+
+
+
+To start the app and test API
 # npm start
